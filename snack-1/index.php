@@ -1,4 +1,4 @@
-<?php 
+<?php
 /* 
 Partendo da questo array: https://www.codepile.net/pile/Po60bjgQ
 
@@ -35,36 +35,41 @@ $ads = [
     ],
 
 ];
+
+var_dump(count($ads));
 ?>
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Title</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS v5.0.2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-  </head>
-  <body class="bg-dark p-4">
-      <?php 
-      $ran_num = rand(0, count($ads)); 
+</head>
 
-      while (!$ads[$ran_num]['is_active']) {
-        $ran_num = rand(0, count($ads));  
-      }
-      
-      ?>
+<body class="bg-dark p-4">
+    <?php
+    $ran_num = rand(0, count($ads) - 1);
 
-        <div class="bg-light p-3 rounded rounded-4 d-flex flex-column w-50 mx-auto text-center">
-            <img src="<?php echo $ads[$ran_num]['image_path']?>" alt="" class="img-fluid rounded rounded-4 mb-2">
+    while (!$ads[$ran_num]['is_active']) {
+        $ran_num = rand(0, count($ads));
+    }
 
-            <a href="<?php echo $ads[$ran_num]['link'] ?>"><?php echo $ads[$ran_num]['link'] ?></a>
+    ?>
 
-        </div>
-      
-  </body>
+    <div class="bg-light p-3 rounded rounded-4 d-flex flex-column w-50 mx-auto text-center">
+        <img src="<?php echo $ads[$ran_num]['image_path'] ?>" alt="" class="img-fluid rounded rounded-4 mb-2">
+
+        <a href="<?php echo $ads[$ran_num]['link'] ?>"><?php echo $ads[$ran_num]['link'] ?></a>
+
+    </div>
+
+</body>
+
 </html>
